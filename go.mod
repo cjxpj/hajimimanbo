@@ -1,4 +1,4 @@
-module hjm-encryptor
+module github.com/cjxpj/hajimimanbo
 
 go 1.23.4
 
