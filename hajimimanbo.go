@@ -130,7 +130,14 @@ func bytesToTriples(data []byte) []Triple {
 	return triples
 }
 
-// -------------------- 加密解密 --------------------
+// -------------------- 公开 --------------------
+
+/*
+ * 加密
+ * @param plainText 明文
+ * @param token 密钥
+ * @return 加密后的密文
+ */
 func Encrypt(plainText, token string) (string, error) {
 	triples := compressLZ77(plainText)
 	compressed := triplesToBytes(triples)
@@ -166,6 +173,12 @@ func Encrypt(plainText, token string) (string, error) {
 	return toHajimiString(buf.Bytes()), nil
 }
 
+/*
+ * 解密
+ * @param data 密文
+ * @param token 密钥
+ * @return 解密后的明文
+ */
 func Decrypt(data, token string) (string, error) {
 	raw, err := fromHajimiString(data)
 	if err != nil {
