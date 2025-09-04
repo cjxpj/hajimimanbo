@@ -1,0 +1,30 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "go",
+			"label": "buildWASM",
+			"command": "build",
+			"args": [
+				"-o",
+				"dist/hajimimanbo.wasm",
+				"./build/wasm.go"
+			],
+			"problemMatcher": [
+				"$go"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "生成 WebAssembly 文件",
+			"options": {
+				"env": {
+					"GO111MODULE": "on",
+					"GOOS": "js",
+					"GOARCH": "wasm"
+				}
+			}
+		},
+	]
+}
